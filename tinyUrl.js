@@ -10,8 +10,5 @@ function get_tiny_url($url)  {
 	return $data;  
 }
 
-//test it out!
+//Por na receção do URL da imagem antes de storeS
 $new_url = get_tiny_url('http://davidwalsh.name/php-imdb-information-grabber');
-
-//returns http://tinyurl.com/65gqpp
-echo $new_url
