@@ -27,3 +27,6 @@ CREATE TABLE Answers(
 	isAnswerUser INTEGER REFERENCES AnswerUser(idAnswerUser)
 	content NVARCHAR2(30) NOT NULL
 );
+
+
+
