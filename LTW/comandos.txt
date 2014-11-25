@@ -1,0 +1,6 @@
+http://localhost/LTW/signin.html
+
+- linha de comandos
+1- procurar C
+2- procurar pasta
+3- sqlite3 -init nome.sql nome.db
