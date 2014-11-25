@@ -14,7 +14,7 @@
  		if (in_array($username, $row)) {
  			if ($password === $row['password']) {
  				$check = 1;
- 				include("newuser.html"); //chamar outro ficheiro
+ 				include("menuinicial.html"); //chamar outro ficheiro
     
  				break;
  			}

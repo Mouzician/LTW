@@ -1,0 +1,179 @@
+html { 
+  background: url(images/b.jpg) 
+  no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#Questions input[type="text"]{
+  width:30%;
+  padding:15px 0px 15px 8px;
+  border-radius:5px;
+  box-shadow:inset 4px 6px 10px -4px rgba(0,0,0,0.3), 0 1px 1px -1px rgba(255,255,255,0.3);
+  background:rgba(0,0,0,0.2);
+  border:1px solid rgba(0,0,0,1);
+  margin-bottom:10px;
+  color:#6E6E6E;
+  text-shadow:#000 0px 1px 5px;
+}
+
+#Questions p{
+
+color:#6E6E6E;
+text-shadow:#000 0px 1px 5px;
+
+}
+
+#dynamicInput p{
+
+color:#6E6E6E;
+text-shadow:#000 0px 1px 5px;
+
+}
+
+#dynamicInput input[type="text"]{
+  width:30%;
+  padding:10px 0px 10px 8px;
+  border-radius:5px;
+  box-shadow:inset 4px 6px 10px -4px rgba(0,0,0,0.3), 0 1px 1px -1px rgba(255,255,255,0.3);
+  background:rgba(0,0,0,0.2);
+  border:1px solid rgba(0,0,0,1);
+  margin-bottom:10px;
+  color:#6E6E6E;
+  text-shadow:#000 0px 1px 5px;
+}
+
+#add input[type="button"]{
+
+border-top: 1px solid #000000;
+   background: #030405;
+   background: -webkit-gradient(linear, left top, left bottom, from(#3e9c67), to(#030405));
+   background: -webkit-linear-gradient(top, #3e9c67, #030405);
+   background: -moz-linear-gradient(top, #3e9c67, #030405);
+   background: -ms-linear-gradient(top, #3e9c67, #030405);
+   background: -o-linear-gradient(top, #3e9c67, #030405);
+   padding: 6.5px 13px;
+   -webkit-border-radius: 24px;
+   -moz-border-radius: 24px;
+   border-radius: 24px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: #d9cad9;
+   font-size: 18px;
+   font-family: Helvetica, Arial, Sans-Serif;
+   text-decoration: none;
+   vertical-align: middle;
+}
+
+#add input[type="button"]:hover {
+   border-top-color: #ffffff;
+   background: #ffffff;
+   color: #000000;
+   }
+   
+#add input[type="button"]:active {
+   border-top-color: #f2f2f2;
+   background: #f2f2f2;
+   }
+
+.Titulo{
+   text-transform:uppercase;
+   font-family: 'Cabin Condensed', sans-serif;
+  font-weight:bold;
+  font-size:100pt;
+  text-align:center;
+  height:120px;
+  line-height:110px;
+  display:block;
+}
+
+.Titulo {
+  font: normal 40px/50px Montserrat, sans-serif;
+  color: #999;
+}
+.Titulo p {
+  height: 50px;
+  float: left;
+  margin-right: 0.3em;
+}
+.Titulo b {
+  float: left;
+  overflow: hidden;
+  position: relative;
+  height: 50px;
+  top: 40px;
+}
+
+.Titulo .Titulo2 {
+  display: inline-block;
+  color: #e74c3c;
+  position: relative;
+  white-space: nowrap;
+  top: 0;
+  left: 0;
+
+/*animation*/
+-webkit-animation:move 2s;
+   -moz-animation:move 2s;
+    -ms-animation:move 2s;
+     -o-animation:move 2s;
+        animation:move 2s;
+/*animation-iteration-count*/
+-webkit-animation-iteration-count:infinite;
+   -moz-animation-iteration-count:infinite;
+    -ms-animation-iteration-count:infinite;
+     -o-animation-iteration-count:infinite;
+        animation-iteration-count:infinite;
+/*animation-delay*/
+-webkit-animation-delay:1s;
+   -moz-animation-delay:1s;
+    -ms-animation-delay:1s;
+     -o-animation-delay:1s;
+        animation-delay:1s;
+}
+
+@keyframes move{
+0%  { top: 0px; }
+20% { top: -50px; }
+40% { top: -100px; }
+60% { top: -150px; }
+80% { top: -200px; }
+}
+
+@-webkit-keyframes move {
+    0%  { top: 0px; }
+    20% { top: -50px; }
+    40% { top: -100px; }
+    60% { top: -150px; }
+    80% { top: -200px; }
+}
+
+@-moz-keyframes move {
+    0%  { top: 0px; }
+    20% { top: -50px; }
+    40% { top: -100px; }
+    60% { top: -150px; }
+    80% { top: -200px; }
+}
+
+@-o-keyframes move {
+    0%  { top: 0px; }
+    20% { top: -50px; }
+    40% { top: -100px; }
+    60% { top: -150px; }
+    80% { top: -200px; }
+}
+
+@keyframes move {
+    0%  { top: 0px; }
+    20% { top: -50px; }
+    40% { top: -100px; }
+    60% { top: -150px; }
+    80% { top: -200px; }
+}

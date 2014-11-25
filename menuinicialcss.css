@@ -1,0 +1,46 @@
+*{
+    background: url(images/b.jpg);
+  padding: 0;
+  margin: 0;
+}
+
+.menu {
+    margin-top: 350px;
+    margin-left: 800px;
+}
+
+.menu input {
+   border-top: 1px solid #96d1f8;
+   background: #65a9d7;
+   background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
+   background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+   background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+   background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+   background: -o-linear-gradient(top, #3e779d, #65a9d7);
+   -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+   border-radius: 10px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 30px;
+   font: 25px Oswald;
+   text-decoration: none;
+   vertical-align: middle;
+    width: 250px;
+    height: 50px;
+    text-align: center;
+   }
+
+.menu input:hover {
+   border-top-color: #282c78;
+   background: #282c78;
+   color: #ccc;
+   }
+
+.menu input:active {
+   border-top-color: #1b205c;
+   background: #1b205c;
+   }

@@ -1,0 +1,36 @@
+<html>
+<head> 
+	<title>Poll Creator</title> 
+	<link rel="stylesheet" type="text/css" href="stylePolls.css"> 
+	<link rel="shortcut icon" href="images/pollicon.png">
+	<link href='http://fonts.googleapis.com/css?family=Cabin+Condensed:700' rel='stylesheet' type='text/css'>
+</head> 
+
+<body>
+
+      <script src="addInput.js" language="Javascript" type="text/javascript"></script>
+   <div class="Titulo">
+        <p>Enjoy Creating</p>
+        <b>
+            <div class="Titulo2">
+                Statistics<br />
+                Doubts <br />
+                Polls
+            </div>
+        </b>
+    </div>
+
+<form method="POST">
+    <div id="Questions">
+     <br><input type="text" name="question" placeholder="Insert your question here..." required>
+ </div>
+     <div id="dynamicInput">
+          <br><input type="text" name="myInputs[]" placeholder="Insert an answer here..." required>
+     </div>
+     <script> addInput('dynamicInput'); </script>
+     <div id="add">
+     <input type="button" value="Add another text input" onClick="addInput('dynamicInput');">
+ </div>
+</form>
+</body>
+</html>
