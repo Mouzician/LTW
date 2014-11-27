@@ -7,23 +7,32 @@
 	$email = $_POST['email'];
 
 	$check = 0;
-	$stmt1 = $dbh->prepare('SELECT username FROM users WHERE username = ?');
-	$stmt1->execute(array($username));
+	$stmt1 = $dbh->prepare('SELECT `username`, `email` FROM users WHERE username = ? or email = ?');
+	$stmt1->execute(array($username, $email));
 	$result = $stmt1->fetchAll();
 
 	foreach ($result as $row) {
 		//echo ($row['username']);
  		if (in_array($username, $row)) {
  			$check = 1;
- 			echo "That username already exists <br>
- 				  Please, choose other";
+ 			
+			echo '<script language="javascript">';
+			echo 'alert("That username already exists. Please, choose other")';
+			echo '</script>';
+
+ 			include ("newuser.html");
+			
  			break;
  		}	
 
- 		if (in_array($email, $row['email'])) {
+ 		if (in_array($email, $row)) {
  			$check = 1;
- 			echo "That email has already been taken <br>
- 				  Please, choose another one";
+
+ 			echo '<script language="javascript">';
+			echo 'alert("That email has already been taken. Please, choose another one")';
+			echo '</script>';
+			
+			include ("newuser.html");
  			break;
  		}
  			
@@ -34,8 +43,9 @@
 		$id1 = $dbh->prepare("SELECT count(*) FROM users");
 		$id1->execute();
 		$stmt2 = $dbh->prepare('INSERT INTO users (username, password, email) VALUES (?, ?, ?)');
-		$stmt2->execute(array($username, $password, $email));
+		$stmt2->execute(array($username, sha1($password), $email));
 
-		printf ("YAY, Welcome to the Big Dick Club %s!", $username);
+		printf ("Welcome Poll R Us!", $username);
+		include("signin.html");
 	}
-?>
+

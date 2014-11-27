@@ -7,12 +7,12 @@
 
 	$check = 0;
 	$stmt = $dbh->prepare('SELECT username, password FROM users WHERE username = ? AND password = ?');
-	$stmt->execute(array($username, $password));
+	$stmt->execute(array($username, sha1($password)));
 
 
 	while ($row = $stmt->fetch()) {
  		if (in_array($username, $row)) {
- 			if ($password === $row['password']) {
+ 			if (sha1($password) === $row['password']) {
  				$check = 1;
  				include("menuinicial.html"); //chamar outro ficheiro
     
