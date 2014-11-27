@@ -38,3 +38,18 @@ function addInput(divName){
           counter++;
      }
 }
+
+function deleteInput(divName){
+
+     //document.getElementById(divName).removeChild();
+
+     var element = document.getElementById(divName);
+
+
+     if (counter > 2){
+
+      element.removeChild(element.lastChild);
+
+      counter--;
+ }
+}
