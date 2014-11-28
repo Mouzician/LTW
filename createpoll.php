@@ -1,17 +1,34 @@
 <?php
 
-	$dbh = new PDO('sqlite:users.db');
+	$dbh = new PDO('sqlite:users.db');	
+	$dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+	$username = $_SESSION['usernameOn'];
+	$quest = $_POST['Question'];
+	$option = $_POST['myInputs'];
+	$image = $_POST['queryImage'];
 
-	$username = $_POST['username'];
-	$password = $_POST['password'];
-	$email = $_POST['email'];
+	$new_url = get_tiny_url($image);
 
-		$id1 = $dbh->prepare("SELECT count(*) FROM users");
-		$id1->execute();
-		$stmt2 = $dbh->prepare('INSERT INTO users (username, password, email) VALUES (?, ?, ?)');
-		$stmt2->execute(array($username, sha1($password), $email));
 
-		printf ("Welcome Poll R Us!", $username);
-		include("signin.html");
-	}
 
+	$stmt = $dbh->prepare('SELECT idUser FROM User WHERE username = ?');
+	$stmt->execute(array($username));
+	$row = $stmt->fetch();
+
+
+	$stmt = $dbh->prepare('INSERT INTO UserQuery (idUser,Question,Image) VALUES (?, ?, ?)');
+	$stmt->execute(array($row['idUser'], $quest,$new_url));
+
+
+
+	$stmt = $dbh->prepare('SELECT idUserQuery FROM UserQuery  WHERE Question = ?');
+	$stmt->execute(array($quest));
+	$row = $stmt->fetch();
+
+foreach ($option as $temp) {
+    $stmt = $dbh->prepare('INSERT INTO Answer (idPoll,Content) VALUES (?, ?)');
+	$stmt->execute(array($row['idPoll'], $temp));
+
+header( 'Location: ../html/createPoll.php' );
+exit();
+?>
