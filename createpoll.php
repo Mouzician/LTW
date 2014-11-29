@@ -13,22 +13,23 @@
 
 	$dbh = new PDO('sqlite:users.db');	
 	$dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-	$username = $_SESSION['username'];
-	$question = $_POST['Question'];
-	$options = $_POST['options'];
+	//$username = $_SESSION['username'];
+	$option = array();
+	$question = $_POST['question'];
+	$option = $_POST['myInputs'];
 	$image = $_POST['image'];
 
 	$new_url = get_tiny_url($image);
 
 
 
-	$stmt = $dbh->prepare('SELECT id FROM users WHERE username = ?');
-	$stmt->execute(array($username));
-	$row = $stmt->fetch();
+	//$stmt = $dbh->prepare('SELECT id FROM users WHERE username = ?');
+	//$stmt->execute(array($username));
+	//$row = $stmt->fetch();
 
 
-	$stmt = $dbh->prepare('INSERT INTO Polls (id,Question,Image) VALUES (?, ?, ?)');
-	$stmt->execute(array($row['id'], $question,$new_url));
+	$stmt = $dbh->prepare('INSERT INTO Polls (idPoll,Question,Image) VALUES (?, ?, ?)');
+	$stmt->execute(array(8, $question,$new_url));
 
 
 
@@ -37,8 +38,8 @@
 	$row = $stmt->fetch();
 
 foreach ($option as $temp) {
-    $stmt = $dbh->prepare('INSERT INTO Answer (idPoll,content) VALUES (?, ?)');
-	$stmt->execute(array($row['idPoll'], $temp));
-
+    $stmt = $dbh->prepare('INSERT INTO Answers (idPoll,content) VALUES (?, ?)');
+	$stmt->execute(array(1, $temp));
+}
 exit();
 ?>
