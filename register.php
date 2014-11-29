@@ -45,7 +45,7 @@
 		$stmt2 = $dbh->prepare('INSERT INTO users (username, password, email) VALUES (?, ?, ?)');
 		$stmt2->execute(array($username, sha1($password), $email));
 
-		printf ("Welcome Poll R Us!", $username);
+		//printf ("Welcome to Polls R Us!", $username);
 		include("signin.html");
 	}
 

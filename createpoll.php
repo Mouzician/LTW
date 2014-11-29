@@ -28,18 +28,18 @@
 	//$row = $stmt->fetch();
 
 
-	$stmt = $dbh->prepare('INSERT INTO Polls (idPoll,Question,Image) VALUES (?, ?, ?)');
-	$stmt->execute(array(8, $question,$new_url));
+	$stmt = $dbh->prepare('INSERT INTO Polls (Question,Image) VALUES (?, ?)');
+	$stmt->execute(array( $question,$new_url));
 
-
+	$ole = $dbh->prepare('SELECT * FROM  Polls WHERE idPoll = (SELECT MAX(idPoll)  FROM Polls)');
 
 	$stmt = $dbh->prepare('SELECT idPoll FROM Polls  WHERE Question = ?');
 	$stmt->execute(array($question));
 	$row = $stmt->fetch();
 
 foreach ($option as $temp) {
-    $stmt = $dbh->prepare('INSERT INTO Answers (idPoll,content) VALUES (?, ?)');
-	$stmt->execute(array(1, $temp));
+    $stmt = $dbh->prepare('INSERT INTO Answers (idPoll,content) VALUES (?,?)');
+	$stmt->execute(array(8,$temp));
 }
 exit();
 ?>
