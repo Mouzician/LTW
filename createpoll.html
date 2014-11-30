@@ -20,6 +20,10 @@
         </b>
     </div>
 
+ <ul id="navigation">
+    <li class="left"><a href="menuinicial.html">Back</a></li><br>
+</ul>
+
 <form method="POST" action="createpoll.php">
     <div id="Questions">
      <br><input type="text" name="question" placeholder="Insert your question here..." required>
@@ -33,9 +37,10 @@
      <script> addInput('dynamicInput'); </script>
      <div id="add">
      <input type="button" value="Add another text input" onClick="addInput('dynamicInput');">
-     <input type="button" value="Delete last text input" onClick="deleteInput('dynamicInput');">
+     <input type="button" value="Delete last text input" onClick="deleteInput('dynamicInput');"><br><br>
+     <input type="submit" class="submit" value="Submit the poll!">
  </div>
-   <input type="submit" class="submit" value="Submit the poll!">
+   
 </form>
 </body>
 </html>
