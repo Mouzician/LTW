@@ -14,7 +14,7 @@
  		if (in_array($username, $row)) {
  			if (sha1($password) === $row['password']) {
  				$check = 1;
- 				include("menuinicial.html"); //chamar outro ficheiro
+ 				include("menuinicial.php"); //chamar outro ficheiro
     
  				break;
  			}

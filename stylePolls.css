@@ -9,6 +9,32 @@ html {
   text-align: center;
 }
 
+
+/* Comandos para o botao back */
+
+ul#navigation li a {
+ display: block;
+  width: 8em;
+  color: #FFF;
+  background-color: #036;
+  padding: .8em 0;
+text-align: center;
+text-decoration: none;
+
+}
+
+ul#navigation li a:hover
+{
+color: #FFF;
+background-color: #69C;
+}
+
+ul#navigation .left
+{
+float: left;
+width: 5em;
+}
+
 #Questions input[type="text"]{
   width:30%;
   padding:15px 0px 15px 8px;
@@ -19,13 +45,6 @@ html {
   margin-bottom:10px;
   color:#6E6E6E;
   text-shadow:#000 0px 1px 5px;
-}
-
-#Questions p{
-
-color:#6E6E6E;
-text-shadow:#000 0px 1px 5px;
-
 }
 
 #dynamicInput p{
@@ -47,7 +66,19 @@ text-shadow:#000 0px 1px 5px;
   text-shadow:#000 0px 1px 5px;
 }
 
-#add input[type="button"]{
+#Image input[type="text"] {
+   width:30%;
+  padding:10px 0px 10px 8px;
+  border-radius:5px;
+  box-shadow:inset 4px 6px 10px -4px rgba(0,0,0,0.3), 0 1px 1px -1px rgba(255,255,255,0.3);
+  background:rgba(0,0,0,0.2);
+  border:1px solid rgba(0,0,0,1);
+  margin-bottom:10px;
+  color:#6E6E6E;
+  text-shadow:#000 0px 1px 5px;
+}
+
+#add input{
 
 border-top: 1px solid #000000;
    background: #030405;
@@ -71,13 +102,13 @@ border-top: 1px solid #000000;
    vertical-align: middle;
 }
 
-#add input[type="button"]:hover {
+#add input:hover {
    border-top-color: #ffffff;
    background: #ffffff;
    color: #000000;
    }
    
-#add input[type="button"]:active {
+#add input:active {
    border-top-color: #f2f2f2;
    background: #f2f2f2;
    }

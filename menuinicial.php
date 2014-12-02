@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE HTML> 
 <html>
 <head> 
@@ -7,9 +11,7 @@
 </head>
 <body>
 
-  <?php 
-  session_start();
-  echo($_SESSION('username')); ?>
+<!--<span id="user"> Hi, <?php echo("$username"); ?></span>-->
 
   <div id="fb-root">
     <script>(function(d, s, id) {
@@ -31,11 +33,9 @@
                 <li><a href="">Search a Poll</a>
 
                     <ul>
-                        <li><a href="idSearch.html">By ID</a>
+                        <li><a href="nameSearch.php">By User</a>
                         </li>
-                        <li><a href="nameSearch.html">By User</a>
-                        </li>
-                        <li><a href="wordSearch.html">By a key word</a>
+                        <li><a href="searchPollByWord.php">By a key word</a>
                         </li>
                     </ul>
                 </li>
