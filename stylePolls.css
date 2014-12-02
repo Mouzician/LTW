@@ -12,11 +12,31 @@ html {
 
 /* Comandos para o botao back */
 
+<<<<<<< HEAD
 ul#navigation li a {
  display: block;
   width: 8em;
   color: #FFF;
   background-color: #036;
+=======
+ul#navigation { 
+  width:50%;
+  padding:15px 0px 15px 8px;
+  border-radius:5px;
+  box-shadow:inset 4px 6px 10px -4px rgba(0,0,0,0.3), 0 1px 1px -1px rgba(255,255,255,0.3);
+  margin-bottom:10px;
+  color:#d9cad9;
+  text-shadow:#000 0px 1px 5px;
+  margin-left: 50px;
+}
+
+ul#navigation li a {
+ display: block;
+
+width: 8em;
+  color: #FFF;
+background-color: #036;
+>>>>>>> origin/master
   padding: .8em 0;
 text-align: center;
 text-decoration: none;
@@ -33,6 +53,10 @@ ul#navigation .left
 {
 float: left;
 width: 5em;
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 }
 
 #Questions input[type="text"]{
