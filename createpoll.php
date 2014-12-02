@@ -1,6 +1,7 @@
 <?php
-
+	if(session_status() == PHP_SESSION_NONE){
 	session_start();
+}
 	$username = $_SESSION['username'];
 
 	function get_tiny_url($url)  {  

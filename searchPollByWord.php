@@ -1,19 +1,39 @@
 <?php
     include('/searchDatabase.php');
     $dbh = new PDO('sqlite:users.db');
+
+    $check=0;
+    $user = $_POST['searchU'];
+    $word = $_POST['searchW'];
+
 ?>
 
 <!DOCTYPE html>
+
 <html>
     <head>
-        <title>List all Polls</title>
+        <title>Found Polls</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css">        
     </head>
     
    <body>
+<?php
+   if(($user == "") && ($word == "")){
+
+        echo '<script language="javascript">';
+        echo 'alert("There was no search parameter!")';
+        echo '</script>';
+        $check = 1;
         
-        <?php 
+        //include("menuinicial.php");
+        header("Location:menuinicial.php");
+        break;
+
+   } 
+
+   if($check == 0){  
+
         $result = getPergunta($dbh);
 
         foreach ($result as $temp) {
@@ -31,12 +51,13 @@
          }
             
         }
-
+    }
 
        //print_r($result);
        //print_r($answ);
        ?>
-                
+
+?>
     </body>
 </html>
          
