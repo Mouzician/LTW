@@ -1,5 +1,8 @@
 <?php
 
+	session_start();
+	$username = $_SESSION['username'];
+
 	function get_tiny_url($url)  {  
 		$ch = curl_init();  
 		$timeout = 5;  
@@ -13,7 +16,7 @@
  
 	$dbh = new PDO('sqlite:users.db');	
 	$dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-	//$username = $_SESSION['username'];
+	 
 	$option = array();
 	$question = $_POST['question'];
 	$option = $_POST['myInputs'];
@@ -62,6 +65,7 @@ foreach ($option as $temp) {
 	$stmt->execute(array($row['idPoll'],$temp));
 }
 
+//session_destroy();
 include("menuinicial.php");
 exit();
 

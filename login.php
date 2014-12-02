@@ -1,8 +1,10 @@
 <?php
 
+	session_start();
 	$dbh = new PDO('sqlite:users.db');
 
 	$username = $_POST['username'];
+	$_SESSION['username'] = $username;
 	$password = $_POST['password'];
 
 	$check = 0;

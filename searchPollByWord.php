@@ -19,10 +19,15 @@
         foreach ($result as $temp) {
             echo $temp['question']; 
             $var = $temp['question']; 
-            $answ = getRespostas($dbh, $temp['idPoll']);
-            echo $temp['image'];  
-         foreach ($answ as $resp) {
-             echo $resp['content'];
+            $answ = getRespostas($dbh, $temp['idPoll']); ?>
+
+            <img src=<?php echo $temp['image'] ?> alt="Smiley face" height="100" width="100">  
+        <?php foreach ($answ as $resp) { ?>
+            <br>
+            <?php
+             echo $resp['content']; ?>
+             <br>
+             <?php
          }
             
         }

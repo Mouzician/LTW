@@ -1,5 +1,6 @@
 <?php
   session_start();
+  $username = $_SESSION['username'];
 ?>
 
 <!DOCTYPE HTML> 
@@ -11,7 +12,7 @@
 </head>
 <body>
 
-<!--<span id="user"> Hi, <?php echo("$username"); ?></span>-->
+<span id="user"> Hi, <?php echo("$username"); ?></span>
 
   <div id="fb-root">
     <script>(function(d, s, id) {

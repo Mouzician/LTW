@@ -1,13 +1,11 @@
-<<<<<<< HEAD
 <?php  
+  session_start();
+  $username = $_SESSION['username'];
+
   include('/searchDatabase.php');
   $dbh = new PDO('sqlite:users.db');
     
-=======
-<?php
-    include('/searchDatabase.php');
-    $dbh = new PDO('sqlite:users.db');
->>>>>>> origin/master
+
 ?>
 
 <!DOCTYPE html>
@@ -20,13 +18,10 @@
     
    <body>
 
-<<<<<<< HEAD
+
+  <!--<span id="user"> Hi, <?php echo("$username"); ?></span>-->
        <ul id="navigation">
              <li class="left"><a href="menuinicial.php">Back</a></li>
-=======
-         <ul id="navigation">
-             <li class="left"><a href="menuinicial.html">Back</a></li>
->>>>>>> origin/master
         </ul>
         <br></br>
             
