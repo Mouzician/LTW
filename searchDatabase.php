@@ -2,7 +2,7 @@
 
     function getPergunta($db) {
 
-        $stmt = $db->prepare("SELECT question, idPoll, image FROM Polls;");
+        $stmt = $db->prepare("SELECT question, idPoll, image, private FROM Polls;");
 
         $stmt->execute();  
         $result = $stmt->fetchAll();

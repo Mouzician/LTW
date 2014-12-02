@@ -31,7 +31,6 @@
 	$result = $stmt1->fetchAll();
 
 	foreach ($result as $row) {
-		//echo ($row['username']);
  		if (in_array($question, $row)) {
  			$check = 1;
  			
@@ -48,14 +47,19 @@
 
 
 if($check == 0) {
-	//$stmt = $dbh->prepare('SELECT id FROM users WHERE username = ?');
-	//$stmt->execute(array($username));
-	//$row = $stmt->fetch();
 
-	$stmt = $dbh->prepare('INSERT INTO Polls (Question,Image) VALUES (?, ?)');
-	$stmt->execute(array( $question,$new_url));
+	$stmt = $dbh->prepare('SELECT id FROM users WHERE username = ?');
+	$stmt->execute(array($username));
+	$row = $stmt->fetch();
 
-	//$ole = $dbh->prepare('SELECT * FROM  Polls WHERE idPoll = (SELECT MAX(idPoll)  FROM Polls)');
+if (!empty($_POST['privacy'])){
+	$stmt = $dbh->prepare('INSERT INTO Polls (idUser,Question,Image,Private) VALUES (?,?,?,?)');
+	$stmt->execute(array($row['id'],$question,$new_url,1));
+
+}else{
+	$stmt = $dbh->prepare('INSERT INTO Polls (idUser,Question,Image,Private) VALUES (?,?,?,?)');
+	$stmt->execute(array($row['id'],$question,$new_url,0));
+}
 
 	$stmt = $dbh->prepare('SELECT idPoll FROM Polls  WHERE Question = ?');
 	$stmt->execute(array($question));
@@ -66,7 +70,6 @@ foreach ($option as $temp) {
 	$stmt->execute(array($row['idPoll'],$temp));
 }
 
-//session_destroy();
 include("menuinicial.php");
 exit();
 

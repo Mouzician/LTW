@@ -32,11 +32,13 @@
 
         <ul class="rolldown-list" id="myList">
     
-       <?php foreach ($result as $temp) { ?>
+       <?php foreach ($result as $temp) {
+         if($temp['private'] == 0){ ?>
             
             <li><a href=""><?php echo $temp['question'] ?></a></li>      
 
-     <?php } ?>
+     <?php } 
+   }?>
 
    </ul>
                 
