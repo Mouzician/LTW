@@ -26,20 +26,17 @@
 	$stmt1->execute(array($question));
 	$result = $stmt1->fetchAll();
 
-	foreach ($result as $row) {
-		//echo ($row['username']);
- 		if (in_array($question, $row)) {
- 			$check = 1;
- 			
-			echo '<script language="javascript">';
-			echo 'alert("A poll with that question already exists. Please, choose another")';
-			echo '</script>';
+	if(count($result) != 0){
+		$check = 1;
 
- 			include ("createpoll.html");
-			
- 			break;
- 		}	
- 	}
+		echo '<script language="javascript">';
+		echo 'alert("You already voted in this poll")';
+		echo '</script>';
+
+ 		include ("newVote.html");
+		
+ 		break;
+	}
 
 
 
