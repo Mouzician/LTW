@@ -45,7 +45,7 @@
                         </li>
                         <li>
                           <div id="SearchW">
-                          <input type='text' name='searchW' placeholder='Search by User'>
+                          <input type='text' name='searchW' placeholder='Search by Word'>
                           <input type="submit" class="submit" value="Search Polls!">
                         </div>
                         </li>

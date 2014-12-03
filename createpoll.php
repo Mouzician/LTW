@@ -30,7 +30,6 @@
 	$stmt1->execute(array($question));
 	$result = $stmt1->fetchAll();
 
-<<<<<<< HEAD
 	foreach ($result as $row) {
  		if (in_array($question, $row)) {
  			$check = 1;
@@ -46,9 +45,6 @@
  	}
 
 
-
-=======
->>>>>>> origin/master
 if($check == 0) {
 
 	$stmt = $dbh->prepare('SELECT id FROM users WHERE username = ?');

@@ -18,6 +18,11 @@
     </head>
     
    <body>
+
+    <ul id="navigation">
+             <li class="left"><a href="menuinicial.php">Back</a></li>
+        </ul>
+        <br></br>
 <?php
    if(($user == "") && ($word == "")){
 
@@ -26,7 +31,6 @@
         echo '</script>';
         $check = 1;
         
-        //include("menuinicial.php");
         header("Location:menuinicial.php");
         break;
 
@@ -39,34 +43,34 @@
         foreach ($result as $temp) {
            $var = $temp['question']; 
             if ($booleano = stripos($var, $word)) { ?>
-            <div id="poll_item">
+            <div id="question">
             <h2><?=$temp['question']?><h2>
 
             <?php
             $answ = getRespostas($dbh, $temp['idPoll']); ?>
 
-            <img src=<?php echo $temp['image'] ?> height="250" width="250">  
+            <img src=<?php echo $temp['image'] ?> height="250" width="250">  <br>
 
 
-          <form>
-            <div class="selectresp">
-           
+<div id="voting">
+    <form action="newvote.php">
+
         <?php foreach ($answ as $resp) { ?>
 
-                <input type="checkbox" id="answer" value="on"><?=$resp['content']?><br>
-                
+    <input type="radio" name="answer" value="answer"><?=$resp['content']?><br><br>
 
         <?php } ?>
+        <br>
+<input type='submit' class='submitvote' name='vote' value='Vote!'>
+    </form>
+</div>
 
-
-        </div> 
-          </form>                  
-         <input type='submit' class='btn btn-success' name='submite_ans' value='Submit'>
                 
             
         <?php }
     }
     } ?>
+
     </body>
 </html>
          

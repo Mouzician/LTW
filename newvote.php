@@ -1,10 +1,14 @@
 <?php
+	if(session_status() == PHP_SESSION_NONE){
+	session_start();
+}
+	$username = $_SESSION['username'];
 
 	$dbh = new PDO('sqlite:users.db');	
 	$dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-	$username = $_POST['username'];
-	$poll = $_POST['poll'];
-	$answer = $_POST['answer'];
+	
+	//$poll = $_POST['poll'];
+	//$answer = $_POST['answer'];
 
 	$stmt1 = $dbh->prepare('SELECT id FROM users WHERE username = ?');
 	$stmt1->execute(array($username));
