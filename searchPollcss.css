@@ -1,97 +1,110 @@
-@charset "utf-8";
-/* CSS Document */
+@import url(http://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700,900);
 
-/* ---------- GENERAL ---------- */
+html{
 
-body {
-	background: url(images/b.jpg);
-	color: #000;
-	font: 14px/1.5em "Open Sans", sans-serif;
-	margin: 0;
+    background: url(images/b.jpg)
+    no-repeat center center fixed; 
+    text-align: center; 
 }
 
-fieldset {
-	border: 0;
-	margin: 0;
-	padding: 0;
+#question{
+
+  font-family:'Cinzel Decorative';
+  color:#f7f7f7; 
+  text-shadow: 2px 2px #0d0f14;
+  font-size: 30px;
+
 }
 
-input {
-	border: none;
-	font-family: inherit;
-	font-size: inherit;
-	line-height: 1.5em;
-	margin: 0;
-	outline: none;
-	padding: 0;
-	-webkit-appearance: none;
+#voting {
+
+  font-family:'Arial';
+  color:#f7f7f7;
+  text-shadow: 2px 2px #0d0f14;
+  font-size: 15px;
+
 }
 
-input[type="search"] {
-    -webkit-appearance: textfield;
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
+#question input[type="radio"]{
+  
 }
 
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none;
+img {
+
+border-radius: 63px;
+border-color: blue;
 }
 
-.clearfix { *zoom: 1; }
-.clearfix:before, .clearfix:after {
-	content: "";
-	display: table;	
-}
-.clearfix:after { clear: both; }
-
-.container {
-	height: 44px;
-	left: 50%;
-	margin: -22px 0 0 -141px;
-	position: absolute;
-	top: 50%;
-}
-
-/* ---------- SEARCH ---------- */
-
-#search {
-	background: #42454e;
-	border-radius: 3px;
-	display: inline-block;
-	padding: 7px;
+#question input[type=submit]{
+  margin-left: 0.5em;
+  height: 1.5em;
+  padding: 0.2em 1.9em 1.4em 2.15em;
+  font-size: 19px;
+  font-weight: bold;
+  font-family: "Open Sans";
+  text-transform: uppercase;
+  color: #f7f7f7;
+  background: url(https://i.imgur.com/Th606mh.png) no-repeat scroll 0.75em 0.07em transparent;
+  background-size: 14px 55px;
+  border-radius: 2em;
+  border: 0.15em solid #f7f7f7;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
 }
 
-#search input {
-	float: left;
+#question input[type="submit"]:hover {
+    color: #fff;
+    background-color: #0d0f14;
+    border-color: #0d0f14;
+    background-position: 0.75em bottom;
+    -webkit-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-#search input[type="search"],
-#search input[type="submit"] {
-	border-radius: 3px;
-	font-size: 12px;
+#question input[type="submit"]:focus {
+    background-position: 2em -4em;
+    -webkit-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+/* Webfonts */
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Open Sans Bold'), local('OpenSans-Bold'), url(https://themes.googleusercontent.com/static/fonts/opensans/v8/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff) format('woff');
 }
 
-#search input[type="search"] {
-	background: #fff;
-	color: #42454e;
-	min-width: 184px;
-	padding: 6px 8px;
+ul#navigation li a {
+-webkit-border-radius: 24px;
+   -moz-border-radius: 24px;
+   border-radius: 24px;
+ display: block;
+  width: 8em;
+  color: #FFF;
+  background-color: #036;
+   padding: 6.5px 6px;
+   font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 20px;
+text-align: center;
+text-decoration: none;
+
 }
 
-#search input[type="submit"] {
-	background: #1bba9a;
-	color: #fff;
-	font-weight: bold;
-	margin-left: 7px;
-	padding: 6px 10px;
+ul#navigation li a:hover
+{
+color: #FFF;
+background-color: #69C;
 }
 
-#search input[type="submit"]:hover {
-	background: #189e83;
+ul#navigation .left
+{
+float: left;
+width: 5em;
 }
-
-#search input[type="search"]::-webkit-input-placeholder { color: #42454e; }
-#search input[type="search"]:-moz-placeholder { color: #42454e; }
-#search input[type="search"]:-ms-input-placeholder { color: #42454e; }

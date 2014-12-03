@@ -20,27 +20,44 @@
 
 
   <!--<span id="user"> Hi, <?php echo("$username"); ?></span>-->
-       <ul id="navigation">
-             <li class="left"><a href="menuinicial.php">Back</a></li>
-        </ul>
+       <div id="navigation">
+             <p class="left"><a href="menuinicial.php">Back</a></p>
+        </div>
         <br></br>
             
         <h1><u>List of all Polls</u></h1>
 
         <?php 
-        $result = getPergunta($dbh);?>
+        $result = getPergunta($dbh);
+        $nomeuser;
 
-        <ul class="rolldown-list" id="myList">
-    
+        ?>
+        <table class="table" border="">
+        <tr>
+        <td> Questions </td>
+        <td> Author </td>
+        </tr>
        <?php foreach ($result as $temp) {
-         if($temp['private'] == 0){ ?>
-            
-            <li><a href=""><?php echo $temp['question'] ?></a></li>      
+         if($temp['private'] == 0){ 
+            $nameuser = $temp['idUser'];
+            $usernome = getUsernome($dbh, $nameuser);
+            foreach ($usernome as $temp2) {
+              $nomeuser = $temp2['username'];
+            }
+            ?>
+            <tr>
+            <td>
+            <?php echo $temp['question'] ?>
+            </td>
+            <td>
+            <?php print_r($nomeuser); ?>
+            </td>   
+            </tr>  
 
      <?php } 
    }?>
 
-   </ul>
+   </table>
                 
     </body>
 </html>

@@ -32,6 +32,8 @@
         <div id="logo"></div>
         <nav>
             <ul>
+                <li><a href="mypolls.php">My Polls</a></li>
+
                 <li><a href="createpoll.html">Create a Poll</a></li>
 
                 <li><a href="">Search a Poll</a>
@@ -45,7 +47,7 @@
                         </li>
                         <li>
                           <div id="SearchW">
-                          <input type='text' name='searchW' placeholder='Search by User'>
+                          <input type='text' name='searchW' placeholder='Search by Word'>
                           <input type="submit" class="submit" value="Search Polls!">
                         </div>
                         </li>
