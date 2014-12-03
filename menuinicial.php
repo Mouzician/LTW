@@ -1,5 +1,8 @@
 <?php
+  if(session_status() == PHP_SESSION_NONE){
   session_start();
+}
+  $username = $_SESSION['username'];
 ?>
 
 <!DOCTYPE HTML> 
@@ -25,6 +28,7 @@
 </div>
   <div class="toolBar">
     <div class="toolWrap">
+      <form class='form' method="POST" action="searchPollByWord.php">
         <div id="logo"></div>
         <nav>
             <ul>
@@ -33,9 +37,13 @@
                 <li><a href="">Search a Poll</a>
 
                     <ul>
-                        <li><a href="nameSearch.php">By User</a>
+                        <li>
+                          <input type='text' class='searchU' name='searchU' placeholder='Search by User'>
+                          <input type="submit" class="submit" value="Search Polls!">
                         </li>
-                        <li><a href="searchPollByWord.php">By a key word</a>
+                        <li>
+                          <input type='text' class='searchW' name='searchW' placeholder='Search by Word'>
+                          <input type="submit" class="submit" value="Search Polls!">
                         </li>
                     </ul>
                 </li>

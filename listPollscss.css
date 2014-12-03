@@ -31,11 +31,20 @@ a {
 }
 
 ul#navigation li a {
+-webkit-border-radius: 24px;
+   -moz-border-radius: 24px;
+   border-radius: 24px;
  display: block;
   width: 8em;
   color: #FFF;
   background-color: #036;
-  padding: .8em 0;
+   padding: 6.5px 6px;
+   font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 20px;
 text-align: center;
 text-decoration: none;
 

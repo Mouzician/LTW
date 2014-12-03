@@ -1,4 +1,8 @@
 <?php
+	if(session_status() == PHP_SESSION_NONE){
+	session_start();
+}
+	$username = $_SESSION['username'];
 
 	function get_tiny_url($url)  {  
 		$ch = curl_init();  
@@ -13,7 +17,7 @@
  
 	$dbh = new PDO('sqlite:users.db');	
 	$dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-	//$username = $_SESSION['username'];
+	 
 	$option = array();
 	$question = $_POST['question'];
 	$option = $_POST['myInputs'];
@@ -26,29 +30,20 @@
 	$stmt1->execute(array($question));
 	$result = $stmt1->fetchAll();
 
-	if(count($result) != 0){
-		$check = 1;
-
-		echo '<script language="javascript">';
-		echo 'alert("You already voted in this poll")';
-		echo '</script>';
-
- 		include ("newVote.html");
-		
- 		break;
-	}
-
-
-
 if($check == 0) {
-	//$stmt = $dbh->prepare('SELECT id FROM users WHERE username = ?');
-	//$stmt->execute(array($username));
-	//$row = $stmt->fetch();
 
-	$stmt = $dbh->prepare('INSERT INTO Polls (Question,Image) VALUES (?, ?)');
-	$stmt->execute(array( $question,$new_url));
+	$stmt = $dbh->prepare('SELECT id FROM users WHERE username = ?');
+	$stmt->execute(array($username));
+	$row = $stmt->fetch();
 
-	//$ole = $dbh->prepare('SELECT * FROM  Polls WHERE idPoll = (SELECT MAX(idPoll)  FROM Polls)');
+if (!empty($_POST['privacy'])){
+	$stmt = $dbh->prepare('INSERT INTO Polls (idUser,Question,Image,Private) VALUES (?,?,?,?)');
+	$stmt->execute(array($row['id'],$question,$new_url,1));
+
+}else{
+	$stmt = $dbh->prepare('INSERT INTO Polls (idUser,Question,Image,Private) VALUES (?,?,?,?)');
+	$stmt->execute(array($row['id'],$question,$new_url,0));
+}
 
 	$stmt = $dbh->prepare('SELECT idPoll FROM Polls  WHERE Question = ?');
 	$stmt->execute(array($question));
