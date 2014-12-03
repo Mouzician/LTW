@@ -14,7 +14,7 @@
     <head>
         <title>Found Polls</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="style.css">        
+        <link rel="stylesheet" type="text/css" href="searchPollcss.css">        
     </head>
     
    <body>
@@ -37,27 +37,36 @@
         $result = getPergunta($dbh);
 
         foreach ($result as $temp) {
-            echo $temp['question']; 
-            $var = $temp['question']; 
+           $var = $temp['question']; 
+            if ($booleano = stripos($var, $word)) { ?>
+            <div id="poll_item">
+            <h2><?=$temp['question']?><h2>
+
+            <?php
             $answ = getRespostas($dbh, $temp['idPoll']); ?>
 
-            <img src=<?php echo $temp['image'] ?> alt="Smiley face" height="100" width="100">  
+            <img src=<?php echo $temp['image'] ?> height="250" width="250">  
+
+
+          <form>
+            <div class="selectresp">
+           
         <?php foreach ($answ as $resp) { ?>
-            <br>
-            <?php
-             echo $resp['content']; ?>
-             <br>
-             <?php
-         }
+
+                <input type="checkbox" id="answer" value="on"><?=$resp['content']?><br>
+                
+
+        <?php } ?>
+
+
+        </div> 
+          </form>                  
+         <input type='submit' class='btn btn-success' name='submite_ans' value='Submit'>
+                
             
-        }
+        <?php }
     }
-
-       //print_r($result);
-       //print_r($answ);
-       ?>
-
-?>
+    } ?>
     </body>
 </html>
          

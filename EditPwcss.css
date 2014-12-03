@@ -1,0 +1,14 @@
+body {
+  background: url(images/b.jpg); 
+  text-align: center;
+  margin-top: 250px;
+}
+
+#new-password-form-container .login-title-message{
+  color: blue;
+  font-size: 50px;
+}
+
+#login-form {
+  color:white;
+}

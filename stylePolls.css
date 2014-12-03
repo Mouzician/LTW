@@ -44,6 +44,14 @@ float: left;
 width: 5em;
 }
 
+#Private{
+
+  font-size: 20px;
+  text-shadow:#000 0px 1px 5px;
+  color:#FFF;
+
+}
+
 #Questions input[type="text"]{
   width:30%;
   padding:15px 0px 15px 8px;

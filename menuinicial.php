@@ -38,16 +38,22 @@
 
                     <ul>
                         <li>
-                          <input type='text' class='searchU' name='searchU' placeholder='Search by User'>
+                          <div id="SearchU">
+                          <input type='text' name='searchU' placeholder='Search by User'>
                           <input type="submit" class="submit" value="Search Polls!">
+                        </div>
                         </li>
                         <li>
-                          <input type='text' class='searchW' name='searchW' placeholder='Search by Word'>
+                          <div id="SearchW">
+                          <input type='text' name='searchW' placeholder='Search by User'>
                           <input type="submit" class="submit" value="Search Polls!">
+                        </div>
                         </li>
                     </ul>
                 </li>
                 <li><a href="listPolls.php">List all Polls</a>
+                </li>
+                 <li><a href="EditPW.php">Change Password</a>
                 </li>
                 <li><a href="logout.php">Logout</a>
                 </li>
