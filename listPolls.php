@@ -17,25 +17,24 @@
     </head>
     
    <body>
-
-
   <!--<span id="user"> Hi, <?php echo("$username"); ?></span>-->
        <div id="navigation">
              <p class="left"><a href="menuinicial.php">Back</a></p>
         </div>
         <br></br>
             
-        <h1><u>List of all Polls</u></h1>
+        <h1>List of all Polls</h1>
 
         <?php 
         $result = getPergunta($dbh);
         $nomeuser;
 
         ?>
-        <table class="table" border="">
+        <table class="flat-table">
+        <tbody>
         <tr>
-        <td> Questions </td>
-        <td> Author </td>
+        <th> Questions </th>
+        <th> Author </th>
         </tr>
        <?php foreach ($result as $temp) {
          if($temp['private'] == 0){ 
@@ -56,7 +55,7 @@
 
      <?php } 
    }?>
-
+</tbody>
    </table>
                 
     </body>
