@@ -113,6 +113,16 @@
 
     }
 
+    function getContent($db, $idAnswer){
+
+        $stmt = $db->prepare("SELECT content FROM Answers WHERE Answers.idAnswer = '$idAnswer';");
+        $stmt->execute();  
+        $result = $stmt->fetch();
+
+        return $result; 
+
+    }
+
    /* function answeruser($db, $iduser){
 
         $stmt = $db->prepare("SELECT idAnswer FROM AnswerUser WHERE AnswerUser.idUser = '$iduser';");
