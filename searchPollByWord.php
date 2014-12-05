@@ -2,6 +2,7 @@
 include('/searchDatabase.php');
 $dbh = new PDO('sqlite:users.db');
 
+$var11=0;
 $check=0;
 $check2=0;
 $user = $_POST['searchU'];
@@ -19,7 +20,9 @@ $username = $_SESSION['username'];
 <head>
   <title>Found Polls</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="searchPollcss.css">        
+  <link rel="stylesheet" type="text/css" href="searchPollcss.css">  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+   <script language="javascript" type="text/javascript" src="pollsjquery.js"> </script>          
 </head>
 
 <body>
@@ -65,20 +68,33 @@ if($check == 0 && $check2 == 1){
 
 
       <div id="voting">
-        <form action="newvote.php">
+          <form name"form1" id="form1" method="POST">
 
          
           <?php foreach ($answ as $resp) { ?>
 
-          <input type="radio" name="answer" value="answer"><?=$resp['content']?><br><br>                
+         <input type="radio" name="answer" value="<?=$resp['idAnswer']?>"><?=$resp['content']?><br><br>               
 
           <?php } ?>
 
-          <br>
-          <input type='submit' class='submitvote' name='vote' value='Vote!'>
-          
-        </form>
-      </div>
+         <script>
+          function submitform(action) {
+
+              document.getElementById('form1').action=action;
+              document.getElementById('form1').submit();
+          }
+          </script>
+
+          <?php $idpoll = $resp['idPoll'];
+            //print_r ("$idpoll");
+           ?>
+
+
+            <br>
+            <input type='button' class='submitvote' name='vote' value='Vote!' onclick="test()">
+            <input type='button' class='submitvote' name='results' value='Show Results!' onclick="submitform('showresults.php?id=<?=$idpoll?>')">
+          </form>
+        </div>
 
       <?php }
 
@@ -92,13 +108,12 @@ if($check == 0 && $check2 == 0) {
         //id do user a procurar
   $result = getPergunta($dbh);
   $iduser = getIDuser($dbh, $user);
-  foreach ($iduser as $temp2) {
-    $var = $temp2['id'];
+  foreach ($iduser as $temp2) {  
+      $var11 = $temp2['id'];
   }
-  
   foreach ($result as $temp) {
     $var2 = $temp['idUser']; 
-    if ($var == $var2) { 
+    if ($var11 == $var2) { 
      if($temp['private'] == 0){ ?>
      <div id="question">
       <h2><?=$temp['question']?><h2>
@@ -110,18 +125,32 @@ if($check == 0 && $check2 == 0) {
 
 
         <div id="voting">
-          <form action="newvote.php">
+            <form name"form1" id="form1" method="POST">
            
             <?php foreach ($answ as $resp) { ?>
 
-            <input type="radio" name="answer" value="answer"><?=$resp['content']?><br><br> 
-            
+            <input type="radio" name="answer" value="<?=$resp['idAnswer']?>"><?=$resp['content']?><br><br> 
 
-            <?php } ?>
+            <?php
+         } ?>
+      
+
+          <script>
+          function submitform(action) {
+
+              document.getElementById('form1').action=action;
+              document.getElementById('form1').submit();
+          }
+          </script>
+
+          <?php $idpoll = $resp['idPoll'];
+            //print_r ("$idpoll");
+           ?>
 
 
             <br>
-            <input type='submit' class='submitvote' name='vote1' value='Vote!'>
+            <input type='button' class='submitvote' name='vote' value='Vote!' onclick="test()">
+            <input type='button' class='submitvote' name='results' value='Show Results!' onclick="submitform('showresults.php?id=<?=$idpoll?>')">
           </form>
         </div>
         

@@ -6,6 +6,7 @@
   session_start();
   }
     $username = $_SESSION['username'];
+    $check=0;
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +15,9 @@
     <head>
         <title>List My Polls</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="searchPollcss.css">        
+        <link rel="stylesheet" type="text/css" href="searchPollcss.css">    
+       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script language="javascript" type="text/javascript" src="pollsjquery.js"> </script>        
     </head>
     
    <body>
@@ -51,8 +54,13 @@
           <?php foreach ($answ as $resp) { ?>
         <br>
           <input type="radio" name="answer" value="<?=$resp['idAnswer']?>"><?=$resp['content']?><br><br>           
+        <!--<?php print_r ($resp['idAnswer']);?>-->
 
-          <?php } ?>
+
+        <?php
+         } ?>
+      
+
           <script>
           function submitform(action) {
 
@@ -61,11 +69,39 @@
           }
           </script>
 
-          <?php $idpoll = $resp['idPoll']; ?>
+          <?php $idpoll = $resp['idPoll'];
+                $apoll = getAnswersFromPoll($dbh, $idpoll); //respostas em todos os polls do user com login
+
+          foreach ($id as $temp2) {
+               $var2 = $temp2['id'];
+
+               $answerspoll = getVote($dbh, $var2) ;
+               foreach ($answerspoll as $temp3) {
+                 $answersuser = $temp3['idAnswer']; //respostas
+                  foreach ($apoll as $temp4) {
+                    $assad = $temp4['idAnswer'];
+                    if($answersuser == $assad) {
+
+                      $check=1;
+                      break;
+
+                    }                 
+                 }
+                 
+
+               }
+          
+        }
+          
+           ?>
+
+
 
           <br>
-          <input type='button' class='submitvote' name='vote' value='Vote!' onclick="submitform('newvote.php?answer=>?$resp['idAnswer']?>')">
+
+          <input type='button' class='submitvote' name='vote' value='Vote!' onclick="<?php if($check==0){?> test() <?php }?>">
           <input type='button' class='submitvote' name='delete' value='Delete Poll!' onclick="submitform('deletepoll.php?id=<?=$idpoll?>')">
+          <input type='button' class='submitvote' name='results' value='Show Results!' onclick="submitform('showresults.php?id=<?=$idpoll?>')">
           
         </form>
       </div>
